@@ -16,9 +16,9 @@
             <div class="cards-container">
 
 
-                <p class="card">Карта события</p>
+                <p class="card">Карта 1</p>
                 <div id="card-1" class="card-response"></div>
-                <p class="card">Карта предмета</p>
+                <p class="card">Карта 2</p>
                 <div id="card-2" class="card-response"></div>
 
 
@@ -26,7 +26,7 @@
 
             <div class="card-info">
 
-                <div id="text" class="card-text">Ты ещё не вытянул ни одной карты</div>
+                <div id="text" class="card-text">Здесь будем тянуть карты но попозже</div>
 
             </div>
 
@@ -57,24 +57,28 @@
                 <div id="bomb-cards" class="bomb-cards">
 
                     <div class="bomb-container">
-                        <div class="bombs-player" id="player1">Лёша
+                        <div class="bombs-player" id="player1">
+                            <p class="player-name">Лёша</p>
 
-                            <ul id="player1-hand" >
-
-                            </ul>
-                        </div>
-                        <div class="bombs-player" id="player2">Ира
-                            <ul id="player2-hand" >
+                            <ul id="player1-hand">
 
                             </ul>
                         </div>
-                        <div class="bombs-player" id="player3">Паша
+                        <div class="bombs-player" id="player2">
+                            <p class="player-name">Ира</p>
+                            <ul id="player2-hand">
+
+                            </ul>
+                        </div>
+                        <div class="bombs-player" id="player3">
+                            <p class="player-name">Паша</p>
                             <ul id="player3-hand">
- 
+
 
                             </ul>
                         </div>
-                        <div class="bombs-player" id="player4">Вова
+                        <div class="bombs-player" id="player4">
+                            <p class="player-name">Вова</p>
 
                             <ul id="player4-hand">
 
@@ -91,7 +95,7 @@
                     <p class="rounds" id="currentround">Текущий раунд: 1</p>
                     <button class="roundbutton" onclick="plusround()">+</button>
                     <!--                    <p class="rounds" id="tilesnothidden">Открытых ячеек:</p>-->
-
+                    <button onclick="cardDrawal()">Вытянуть новые карты</button>
                 </div>
 
 

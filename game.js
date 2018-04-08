@@ -13,7 +13,10 @@ var found_items = 0;
 
 var players_count = 4;
 var decks_object = [{}];
+var drawal_object = [{}];
 var setup_bomb_cards = [];
+
+var drawalsMade = 0;
 
 
 
@@ -56,68 +59,76 @@ function minusround() {
 function fillCardsRandom() {
 
 
-    var bomb_cards = [
-        "Уворот на 4 клетки",
-        "Уворот на 4 клетки",
-        "Уворот на 4 клетки",
-        "Уворот на 4 клетки",
-        "Уворот на 4 клетки",
-        "Уворот на 4 клетки",
-        "Пинок на 4 клетки",
-        "Пинок на 4 клетки",
-        "Пинок на 4 клетки",
-        "Пинок на 4 клетки",
-        "Пинок на 4 клетки",
-        "Пинок на 4 клетки",
-        "Пинок на 4 клетки со взрывом",
-        "Пинок на 4 клетки со взрывом",
-        "Пинок на 4 клетки со взрывом",
-        "Пинок на 4 клетки со взрывом",
-        "Пинок на 4 клетки со взрывом",
-        "Пинок на 4 клетки со взрывом",
-        "Пинок на 4 клетки со взрывом",
-        "Пинок на 4 клетки со взрывом",
-        "Вернуть бомбу тому кто запустил",
-        "Вернуть бомбу тому кто запустил",
-        "Вернуть бомбу тому кто запустил",
-        "Вернуть бомбу тому кто запустил",
-        "Вернуть бомбу тому кто запустил",
-        "Вернуть бомбу тому кто запустил",
-        "Защититься от взрыва",
-        "Защититься от взрыва",
-        "Защититься от взрыва",
-        "Защититься от взрыва",
-        "Потушить бомбу",
-        "Потушить бомбу",
-        "Потушить бомбу",
-        "Потушить бомбу",
-        "Потушить бомбу",
-        "Потушить бомбу",
-        "Забрать бомбу себе",
-        "Забрать бомбу себе",
-        "Забрать бомбу себе",
-        "Забрать бомбу себе",
-        "Взрываем бомбу по прямой",
-        "Взрываем бомбу по прямой",
-        "Взрываем бомбу по прямой",
-        "Взрываем бомбу по прямой",
-        "Взрываем бомбу по прямой",
-        "Взрываем бомбу по прямой",
-        "Взрываем бомбу по 2 стороны от бомбы",
-        "Взрываем бомбу по 2 стороны от бомбы",
-        "Взрываем бомбу по 2 стороны от бомбы",
-        "Взрываем бомбу по 2 стороны от бомбы",
-        "Камикадзе",
-        "Камикадзе",
-        "Воскреснуть",
-        "Камикадзе",
-        "Воскреснуть",
-        "Воскреснуть",
-        "Съесть бомбу",
-        "Съесть бомбу",
-        "Поменяться местами с другим",
-        "Поменяться местами с другим"
-        ]
+    var bomb_cards = ["Пинок на 4 клетки со взрывом", "Взрываем бомбу по прямой", "Уворот на 4 клетки", "Взрываем бомбу по 2 стороны от бомбы", "Пинок на 4 клетки со взрывом", "Камикадзе", "Пинок на 4 клетки со взрывом", "Пинок на 4 клетки", "Вернуть бомбу тому кто запустил", "Пинок на 4 клетки со взрывом", "Воскреснуть", "Пинок на 4 клетки со взрывом", "Забрать бомбу себе", "Пинок на 4 клетки со взрывом", "Защититься от взрыва", "Взрываем бомбу по 2 стороны от бомбы", "Пинок на 4 клетки", "Поменяться местами с другим", "Уворот на 4 клетки", "Защититься от взрыва", "Защититься от взрыва", "Воскреснуть", "Потушить бомбу", "Потушить бомбу", "Взрываем бомбу по 2 стороны от бомбы", "Защититься от взрыва", "Взрываем бомбу по прямой", "Пинок на 4 клетки со взрывом", "Взрываем бомбу по прямой", "Пинок на 4 клетки со взрывом", "Пинок на 4 клетки", "Вернуть бомбу тому кто запустил", "Вернуть бомбу тому кто запустил", "Воскреснуть", "Взрываем бомбу по 2 стороны от бомбы", "Забрать бомбу себе", "Съесть бомбу", "Уворот на 4 клетки", "Забрать бомбу себе", "Взрываем бомбу по прямой", "Камикадзе", "Уворот на 4 клетки", "Потушить бомбу", "Вернуть бомбу тому кто запустил", "Уворот на 4 клетки", "Вернуть бомбу тому кто запустил", "Взрываем бомбу по прямой", "Вернуть бомбу тому кто запустил", "Потушить бомбу", "Уворот на 4 клетки", "Взрываем бомбу по прямой", "Пинок на 4 клетки", "Потушить бомбу", "Забрать бомбу себе", "Поменяться местами с другим", "Пинок на 4 клетки", "Пинок на 4 клетки", "Камикадзе", "Съесть бомбу", "Потушить бомбу"];
+
+
+
+    /*
+        var bomb_cards = [
+            "Уворот на 4 клетки",
+            "Уворот на 4 клетки",
+            "Уворот на 4 клетки",
+            "Уворот на 4 клетки",
+            "Уворот на 4 клетки",
+            "Уворот на 4 клетки",
+            "Пинок на 4 клетки",
+            "Пинок на 4 клетки",
+            "Пинок на 4 клетки",
+            "Пинок на 4 клетки",
+            "Пинок на 4 клетки",
+            "Пинок на 4 клетки",
+            "Пинок на 4 клетки со взрывом",
+            "Пинок на 4 клетки со взрывом",
+            "Пинок на 4 клетки со взрывом",
+            "Пинок на 4 клетки со взрывом",
+            "Пинок на 4 клетки со взрывом",
+            "Пинок на 4 клетки со взрывом",
+            "Пинок на 4 клетки со взрывом",
+            "Пинок на 4 клетки со взрывом",
+            "Вернуть бомбу тому кто запустил",
+            "Вернуть бомбу тому кто запустил",
+            "Вернуть бомбу тому кто запустил",
+            "Вернуть бомбу тому кто запустил",
+            "Вернуть бомбу тому кто запустил",
+            "Вернуть бомбу тому кто запустил",
+            "Защититься от взрыва",
+            "Защититься от взрыва",
+            "Защититься от взрыва",
+            "Защититься от взрыва",
+            "Потушить бомбу",
+            "Потушить бомбу",
+            "Потушить бомбу",
+            "Потушить бомбу",
+            "Потушить бомбу",
+            "Потушить бомбу",
+            "Забрать бомбу себе",
+            "Забрать бомбу себе",
+            "Забрать бомбу себе",
+            "Забрать бомбу себе",
+            "Взрываем бомбу по прямой",
+            "Взрываем бомбу по прямой",
+            "Взрываем бомбу по прямой",
+            "Взрываем бомбу по прямой",
+            "Взрываем бомбу по прямой",
+            "Взрываем бомбу по прямой",
+            "Взрываем бомбу по 2 стороны от бомбы",
+            "Взрываем бомбу по 2 стороны от бомбы",
+            "Взрываем бомбу по 2 стороны от бомбы",
+            "Взрываем бомбу по 2 стороны от бомбы",
+            "Камикадзе",
+            "Камикадзе",
+            "Воскреснуть",
+            "Камикадзе",
+            "Воскреснуть",
+            "Воскреснуть",
+            "Съесть бомбу",
+            "Съесть бомбу",
+            "Поменяться местами с другим",
+            "Поменяться местами с другим"
+            ]
+
+
+    */
 
     var accidents_arr = [
         "Вой собаки-призрака", "Вой собаки-призрака",
@@ -157,10 +168,11 @@ function fillCardsRandom() {
         "Кукла вуду",
         "Склянка “Лови Момент”", "Склянка “Лови Момент”"
     ]
-    setup_accidents = shuffle(accidents_arr);
-    setup_items = shuffle(items_arr);
+    //setup_accidents = shuffle(accidents_arr);
+    // setup_items = shuffle(items_arr);
     setup_bomb_cards = shuffle(bomb_cards);
 
+    return setup_bomb_cards;
 }
 
 
@@ -170,95 +182,107 @@ function shuffleAndDrawBombCards(card_array) {
     for (var i = 0; i < 4; i++) {
         decks_object[i] = card_array.splice(0, 15);
     }
+    drawal_object = $.extend(true, {}, decks_object);
+
 
 }
 
-
+//функция удаляет текущие карты на руках игроков, 
 function cardDrawal() {
+    drawalsMade++;
+    if (drawalsMade > 3) {
+        drawalsMade = 0;
+        decks_object = [{}];
+        drawal_object = [{}];
+        shuffleAndDrawBombCards(fillCardsRandom());
+
+    }
+    $('.bombs-hand').remove();
 
 
     for (var i = 0; i < players_count; i++) {
 
-        var correct_i = i + 1;
-        var player_hand = "#player" + correct_i + "-hand";
-        var j = 0;
-        $.each(decks_object[i], function (index, val) {
-
-            if (index < 3) {
-                var li = $('<li/>')
-                    .addClass('bombs-hand')
-                    .appendTo(player_hand)
-                    .text(decks_object[i][j]);
-                j++;
-            }
-            decks_object[i].splice(0, 3);
-        });
-        
-        
-        
-        
-        /*
-                switch (i) {
-                    case 0:
-                        var j = 0;
-                        $.each(decks_object[i], function (index, val) {
-
-                            if (index < 3) {
-                                var li = $('<li/>')
-                                    .addClass('bombs-hand')
-                                    .appendTo('#player1-hand')
-                                    .text(decks_object[i][j]);
-                                j++;
-                            }
-                            decks_object[i].splice(0, 3);
-                        });
-                        break;
-                    case 1:
-                        $.each(decks_object[i], function (index, val) {
-
-                            if (index < 3) {
-                                var li = $('<li/>')
-                                    .addClass('bombs-hand')
-                                    .appendTo('#player2-hand')
-                                    .text(decks_object[i][j]);
-                                j++;
-                            }
-                            decks_object[i].splice(0, 3);
-                        });
-                        break;
-                    case 2:
-                        var j = 0;
-                        $.each(decks_object[i], function (index, val) {
-
-                            if (index < 3) {
-                                var li = $('<li/>')
-                                    .addClass('bombs-hand')
-                                    .appendTo('#player3-hand')
-                                    .text(decks_object[i][j]);
-                                j++;
-                            }
-                            decks_object[i].splice(0, 3);
-                        });
-                        break;
-                    case 3:
-                        var j = 0;
-                        $.each(decks_object[i], function (index, val) {
-
-                            if (index < 3) {
-                                var li = $('<li/>')
-                                    .addClass('bombs-hand')
-                                    .appendTo('#player4-hand')
-                                    .text(decks_object[i][j]);
-                                j++;
-                            }
-                            decks_object[i].splice(0, 3);
-                        });
-                        break;
+        $.each(drawal_object[i], function (index, val) {
+            var correct_i = i + 1;
+            var player_hand = "#player" + correct_i + "-hand";
+            if (index == 0) {
+                for (var j = 0; j < 3; j++) {
+                    var li = $('<li/>')
+                        .addClass('bombs-hand')
+                        .appendTo(player_hand)
+                        .text(drawal_object[i][j]);
                 }
-                
-                */
+                drawal_object[i].splice(0, 3);
+            }
+
+        });
+
     }
+
+
+    /*
+            switch (i) {
+                case 0:
+                    var j = 0;
+                    $.each(decks_object[i], function (index, val) {
+
+                        if (index < 3) {
+                            var li = $('<li/>')
+                                .addClass('bombs-hand')
+                                .appendTo('#player1-hand')
+                                .text(decks_object[i][j]);
+                            j++;
+                        }
+                        decks_object[i].splice(0, 3);
+                    });
+                    break;
+                case 1:
+                    $.each(decks_object[i], function (index, val) {
+
+                        if (index < 3) {
+                            var li = $('<li/>')
+                                .addClass('bombs-hand')
+                                .appendTo('#player2-hand')
+                                .text(decks_object[i][j]);
+                            j++;
+                        }
+                        decks_object[i].splice(0, 3);
+                    });
+                    break;
+                case 2:
+                    var j = 0;
+                    $.each(decks_object[i], function (index, val) {
+
+                        if (index < 3) {
+                            var li = $('<li/>')
+                                .addClass('bombs-hand')
+                                .appendTo('#player3-hand')
+                                .text(decks_object[i][j]);
+                            j++;
+                        }
+                        decks_object[i].splice(0, 3);
+                    });
+                    break;
+                case 3:
+                    var j = 0;
+                    $.each(decks_object[i], function (index, val) {
+
+                        if (index < 3) {
+                            var li = $('<li/>')
+                                .addClass('bombs-hand')
+                                .appendTo('#player4-hand')
+                                .text(decks_object[i][j]);
+                            j++;
+                        }
+                        decks_object[i].splice(0, 3);
+                    });
+                    break;
+            }
+            
+            */
+
 }
+
 
 
 
@@ -474,17 +498,49 @@ function init() {
                             $(hovertile).toggleClass('tile-crossed');
                             break;
 
-                        case 32:
+                        case 49:
+                            var getplayer = document.getElementById('player1-tile');
+                            if (getplayer) {
+                                getplayer.removeAttribute('id', 'player1-tile');
+                            }
 
+                            $(hovertile).attr('id', 'player1-tile');
+
+                            if ($(getplayer).is('#player1-tile')) getplayer.removeAttribute('id', 'player1-tile');
                             break;
 
-                        case 32:
+                        case 50:
+                            var getplayer = document.getElementById('player2-tile');
+                            if (getplayer) {
+                                getplayer.removeAttribute('id', 'player2-tile');
+                            }
 
+                            $(hovertile).attr('id', 'player2-tile');
+
+                            if ($(getplayer).is('#player2-tile')) getplayer.removeAttribute('id', 'player2-tile');
                             break;
 
-                        case 32:
+                        case 51:
+                            var getplayer = document.getElementById('player3-tile');
+                            if (getplayer) {
+                                getplayer.removeAttribute('id', 'player3-tile');
+                            }
 
+                            $(hovertile).attr('id', 'player3-tile');
+
+                            if ($(getplayer).is('#player3-tile')) getplayer.removeAttribute('id', 'player3-tile');
                             break;
+                        case 52:
+                            var getplayer = document.getElementById('player4-tile');
+                            if (getplayer) {
+                                getplayer.removeAttribute('id', 'player4-tile');
+                            }
+
+                            $(hovertile).attr('id', 'player4-tile');
+
+                            if ($(getplayer).is('#player4-tile')) getplayer.removeAttribute('id', 'player4-tile');
+                            break;
+
 
 
 
@@ -741,7 +797,7 @@ function init() {
 
             });
 
-
+            cardDrawal();
         }
 
 
@@ -767,7 +823,13 @@ function init() {
         var player_enabler = "#player" + i;
         $(player_enabler).show();
     }
-    
+
+    $('body').on('click', '.bombs-hand', function () {
+        $(this).toggleClass('drawn');
+
+
+    });
+
 
 
 

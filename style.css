@@ -178,13 +178,13 @@ body {
 }
 
 #killer {
-    box-shadow: inset 0px 0px 25px 2px red;
+    box-shadow: inset 0px 0px 25px 2px white;
 }
 
 .navigation-top {
     height: 50px;
     background-image: none;
-    background-color: forestgreen !important;
+    background-color: darkolivegreen!important;
     text-align: center;
     font-size: 25px;
     vertical-align: bottom;
@@ -193,7 +193,7 @@ body {
 
 .navigation-left {
     background-image: none;
-    background-color: forestgreen !important;
+    background-color: darkolivegreen !important;
     text-align: center;
     font-size: 25px;
     width: 50px;
@@ -204,7 +204,7 @@ body {
     height: 800px;
     width: 600px;
 
-    background-color: wheat;
+    background-color: beige;
     display: flex;
     overflow: hidden;
 }
@@ -212,7 +212,7 @@ body {
 .cards-container {
     margin-left: 60px;
     margin-top: 100px;
-    background-color: wheat;
+    background-color: beige;
     display: flex;
     flex-flow: column;
     overflow: auto;
@@ -243,7 +243,7 @@ body {
 }
 
 .card {
-    background-color: wheat;
+    background-color: beige;
 }
 
 
@@ -274,7 +274,7 @@ body {
 
 
 .noise {
-    box-shadow: inset 0px 0px 25px 2px blue;
+    box-shadow: inset 0px 0px 25px 2px orange;
 }
 
 
@@ -282,13 +282,13 @@ body {
     height: 800px;
     width: 440px;
 
-    background-color: wheat;
+    background-color: beige;
     display: flex;
     overflow: hidden;
 }
 
 .info-container {
-    background-color: wheat;
+    background-color: beige;
     display: flex;
     flex-flow: column;
     overflow: auto;
@@ -305,7 +305,7 @@ body {
 }
 
 .round-counter {
-    background-color: wheat;
+    background-color: beige;
     display: flex;
     flex-flow: column;
     overflow: auto;
@@ -319,6 +319,7 @@ body {
 }
 
 .roundbutton {
+    margin-bottom: 5px;
     align-self: center;
     height: 30px;
     width: 60px;
@@ -353,7 +354,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    content: "\274c"; /* use the hex value here... */
+    content: "\1f4a3"; /* use the hex value here... */
     font-size: 50px; 
     color: #FFF;
     line-height: 80px;
@@ -373,6 +374,96 @@ body {
     display: none;
 }
 
+.bomb-container {
+    margin-left: 10px;
+    padding-bottom: 10px;
+    height: 400px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+}
 
+.bombs-player{
+    display: block;
+}
+
+.player-name{
+    font-family: fantasy;
+    font-size: 16px;
+}
+
+
+.drawn {
+    background-color: dimgrey;
+}
+
+
+#player1-tile{
+    box-shadow: inset 0px 0px 30px 5px darkred;
+}
+
+#player1-tile::after {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "\0410"; /* use the hex value here... */
+    font-size: 50px; 
+    color: #FFF;
+    line-height: 80px;
+    text-align: center;
+    margin-left: 6px;
+}
+
+#player2-tile{
+    box-shadow: inset 0px 0px 30px 5px cyan;
+}
+
+#player2-tile::after {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "\0418"; /* use the hex value here... */
+    font-size: 50px; 
+    color: #FFF;
+    line-height: 80px;
+    text-align: center;
+    margin-left: 6px;
+}
+
+#player3-tile{
+    box-shadow: inset 0px 0px 30px 5px blue;
+}
+
+#player3-tile::after {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "\041F"; /* use the hex value here... */
+    font-size: 50px; 
+    color: #FFF;
+    line-height: 80px;
+    text-align: center;
+    margin-left: 6px;
+}
+
+#player4-tile{
+    box-shadow: inset 0px 0px 30px 5px yellow;
+}
+
+#player4-tile::after {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "\0412"; /* use the hex value here... */
+    font-size: 50px; 
+    color: #FFF;
+    line-height: 80px;
+    text-align: center;
+    margin-left: 6px;
+}
 
 
