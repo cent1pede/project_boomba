@@ -368,3 +368,11 @@ body {
 .bombs-hand:hover{
     filter: opacity(50%);
 }
+
+#player1, #player2, #player3, #player4 {
+    display: none;
+}
+
+
+
+

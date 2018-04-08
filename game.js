@@ -177,66 +177,86 @@ function shuffleAndDrawBombCards(card_array) {
 function cardDrawal() {
 
 
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < players_count; i++) {
 
+        var correct_i = i + 1;
+        var player_hand = "#player" + correct_i + "-hand";
+        var j = 0;
+        $.each(decks_object[i], function (index, val) {
 
-        switch (i) {
-            case 0:
-                var j = 0;
-                $.each(decks_object[i], function (index, val) {
+            if (index < 3) {
+                var li = $('<li/>')
+                    .addClass('bombs-hand')
+                    .appendTo(player_hand)
+                    .text(decks_object[i][j]);
+                j++;
+            }
+            decks_object[i].splice(0, 3);
+        });
+        
+        
+        
+        
+        /*
+                switch (i) {
+                    case 0:
+                        var j = 0;
+                        $.each(decks_object[i], function (index, val) {
 
-                    if (index < 3) {
-                        var li = $('<li/>')
-                            .addClass('bombs-hand')
-                            .appendTo('#player1-hand')
-                            .text(decks_object[i][j]);
-                        j++;
-                    }
-                    decks_object[i].splice(0, 3);
-                });
-                break;
-            case 1:
-                $.each(decks_object[i], function (index, val) {
+                            if (index < 3) {
+                                var li = $('<li/>')
+                                    .addClass('bombs-hand')
+                                    .appendTo('#player1-hand')
+                                    .text(decks_object[i][j]);
+                                j++;
+                            }
+                            decks_object[i].splice(0, 3);
+                        });
+                        break;
+                    case 1:
+                        $.each(decks_object[i], function (index, val) {
 
-                    if (index < 3) {
-                        var li = $('<li/>')
-                            .addClass('bombs-hand')
-                            .appendTo('#player2-hand')
-                            .text(decks_object[i][j]);
-                        j++;
-                    }
-                    decks_object[i].splice(0, 3);
-                });
-                break;
-            case 2:
-                var j = 0;
-                $.each(decks_object[i], function (index, val) {
+                            if (index < 3) {
+                                var li = $('<li/>')
+                                    .addClass('bombs-hand')
+                                    .appendTo('#player2-hand')
+                                    .text(decks_object[i][j]);
+                                j++;
+                            }
+                            decks_object[i].splice(0, 3);
+                        });
+                        break;
+                    case 2:
+                        var j = 0;
+                        $.each(decks_object[i], function (index, val) {
 
-                    if (index < 3) {
-                        var li = $('<li/>')
-                            .addClass('bombs-hand')
-                            .appendTo('#player3-hand')
-                            .text(decks_object[i][j]);
-                        j++;
-                    }
-                    decks_object[i].splice(0, 3);
-                });
-                break;
-            case 3:
-                var j = 0;
-                $.each(decks_object[i], function (index, val) {
+                            if (index < 3) {
+                                var li = $('<li/>')
+                                    .addClass('bombs-hand')
+                                    .appendTo('#player3-hand')
+                                    .text(decks_object[i][j]);
+                                j++;
+                            }
+                            decks_object[i].splice(0, 3);
+                        });
+                        break;
+                    case 3:
+                        var j = 0;
+                        $.each(decks_object[i], function (index, val) {
 
-                    if (index < 3) {
-                        var li = $('<li/>')
-                            .addClass('bombs-hand')
-                            .appendTo('#player4-hand')
-                            .text(decks_object[i][j]);
-                        j++;
-                    }
-                    decks_object[i].splice(0, 3);
-                });
-                break;
-        }
+                            if (index < 3) {
+                                var li = $('<li/>')
+                                    .addClass('bombs-hand')
+                                    .appendTo('#player4-hand')
+                                    .text(decks_object[i][j]);
+                                j++;
+                            }
+                            decks_object[i].splice(0, 3);
+                        });
+                        break;
+                }
+                
+                */
     }
 }
 
@@ -741,9 +761,13 @@ function init() {
     //        });
     //    });
 
+    //var players_array = [];
 
-
-
+    for (var i = 1; i <= players_count; i++) {
+        var player_enabler = "#player" + i;
+        $(player_enabler).show();
+    }
+    
 
 
 
