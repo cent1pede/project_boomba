@@ -1,0 +1,368 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    background-image: url(img/woodback.jpg);
+}
+
+}
+
+#forest-field {}
+
+.wrapper {
+
+    margin: 0 auto;
+    display: flex;
+}
+
+
+.game-table {
+    margin: 0 auto;
+    width: auto;
+}
+
+.controls {
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    height: 40px;
+    width: 120px;
+    margin-top: 5px;
+}
+
+
+.game-table-cell {
+
+    height: 80px;
+    width: 80px;
+    border-radius: 7px;
+}
+
+.tile:hover {
+    filter: brightness(80%);
+}
+
+.ghostguard {
+    background-image: url(img/ghostguard.jpg);
+    background-size: contain;
+
+}
+
+.kingnotes {
+    background-image: url(img/kingnotes.jpg);
+    background-size: contain;
+
+}
+
+
+.pit {
+    background-image: url(img/pit.jpg);
+    background-size: contain;
+}
+
+
+.slippery {
+    background-image: url(img/slippery.jpg);
+    background-size: contain;
+    height: 80px;
+    width: 80px;
+    background-repeat: no-repeat;
+}
+
+
+.diningroom {
+    background-image: url(img/diningroom.png);
+    background-size: contain;
+}
+
+
+.blokage {
+    background-image: url(img/blokage.jpg);
+    background-size: contain;
+}
+
+.soultrap {
+    background-image: url(img/soultrap.jpg);
+    background-size: contain;
+}
+
+.secretpassage {
+    background-image: url(img/secretpassage.jpg);
+    background-size: contain;
+}
+
+.occulttotem {
+    background-image: url(img/occulttotem.jpg);
+    background-size: contain;
+    height: 80px;
+    width: 80px;
+    background-repeat: no-repeat;
+}
+
+.castlemap {
+    background-image: url(img/castlemap.jpg);
+    background-size: contain;
+    height: 80px;
+    width: 80px;
+    background-repeat: no-repeat;
+}
+
+
+.hall {
+    background-image: url(img/hall.jpg);
+    background-size: contain;
+    height: 80px;
+    width: 80px;
+    background-repeat: no-repeat;
+}
+
+
+.kingtoilet {
+    background-image: url(img/kingtoilet.jpg);
+    background-size: contain;
+    height: 80px;
+    width: 80px;
+    background-repeat: no-repeat;
+}
+
+.free {
+    background-image: url(img/free.jpg);
+    background-size: contain;
+    height: 80px;
+    width: 80px;
+    background-repeat: no-repeat;
+}
+
+.tower {
+    background-image: url(img/tower.jpg);
+    background-size: contain;
+}
+
+.library {
+    background-image: url(img/library.jpg);
+    background-size: contain;
+}
+
+.throneroom {
+    background-image: url(img/throneroom.jpg);
+    background-size: contain;
+}
+
+.store {
+    background-image: url(img/store.jpg);
+    background-size: contain;
+}
+
+.treasury {
+    background-image: url(img/treasury.jpg);
+    background-size: contain;
+}
+
+.receptionhall {
+    background-image: url(img/receptionhall.jpg);
+    background-size: contain;
+}
+
+
+.hidden {
+    background-color: darkolivegreen !important;
+    background-image: url(img/tile.jpg)!important;
+
+}
+
+#killer {
+    box-shadow: inset 0px 0px 25px 2px red;
+}
+
+.navigation-top {
+    height: 50px;
+    background-image: none;
+    background-color: forestgreen !important;
+    text-align: center;
+    font-size: 25px;
+    vertical-align: bottom;
+}
+
+
+.navigation-left {
+    background-image: none;
+    background-color: forestgreen !important;
+    text-align: center;
+    font-size: 25px;
+    width: 50px;
+}
+
+
+.cardplace {
+    height: 800px;
+    width: 600px;
+
+    background-color: wheat;
+    display: flex;
+    overflow: hidden;
+}
+
+.cards-container {
+    margin-left: 60px;
+    margin-top: 100px;
+    background-color: wheat;
+    display: flex;
+    flex-flow: column;
+    overflow: auto;
+}
+
+
+
+#card-1 {
+    height: 216px;
+    width: 153px;
+    background: url(img/fool.png);
+    background-repeat: round;
+    margin-bottom: 20px;
+}
+
+#card-2 {
+    height: 216px;
+    width: 153px;
+    background: url(img/magician.png);
+    background-repeat: round;
+
+}
+
+.card-response:hover {
+    filter: brightness(90%);
+    box-shadow: inset 0px 0px 40px 2px green;
+
+}
+
+.card {
+    background-color: wheat;
+}
+
+
+.card-info {
+    height: auto;
+    width: 300px;
+    font-size: 20px;
+    font-family: fantasy;
+    display: flex;
+    margin: auto 0;
+    padding-bottom: 95px;
+    padding-left: 10px;
+
+}
+
+.card-text {
+    display: block;
+    align-self: flex-end;
+}
+
+.item {
+    background-color: chartreuse;
+}
+
+.accident {
+    background-color: deepskyblue;
+}
+
+
+.noise {
+    box-shadow: inset 0px 0px 25px 2px blue;
+}
+
+
+.infoplace {
+    height: 800px;
+    width: 440px;
+
+    background-color: wheat;
+    display: flex;
+    overflow: hidden;
+}
+
+.info-container {
+    background-color: wheat;
+    display: flex;
+    flex-flow: column;
+    overflow: auto;
+}
+
+#tile-info {
+
+    font-size: 20px;
+    font-family: fantasy;
+    display: flex;
+    margin: auto 0;
+    /*    padding-bottom: 95px;*/
+    padding-left: 10px;
+}
+
+.round-counter {
+    height: 300px;
+    width: 400px;
+    background-color: wheat;
+    display: flex;
+    flex-flow: column;
+    overflow: auto;
+}
+
+
+.rounds {
+    font-size: 20px;
+    font-family: fantasy;
+    text-align: center;
+}
+
+.roundbutton {
+    align-self: center;
+    height: 30px;
+    width: 60px;
+}
+
+.winnotes {
+    display: inline-block;
+    margin-left: 10px;
+    height: 80px;
+    width: 80px;
+    box-shadow: inset 0px 0px 25px 2px yellow;
+    background-image: url(img/kingnotes.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+#windigit {
+    display: inline;
+    font-size: 25px;
+    font-family: fantasy;
+    margin-left: 10px;
+}
+
+
+.tile-crossed{
+    box-shadow: inset 0px 0px 30px 5px black;
+}
+
+.tile-crossed::after {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "\274c"; /* use the hex value here... */
+    font-size: 50px; 
+    color: #FFF;
+    line-height: 80px;
+    text-align: center;
+    margin-left: 6px;
+}
+
+.bomb-cards{
+    display: none;
+}
