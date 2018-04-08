@@ -305,8 +305,6 @@ body {
 }
 
 .round-counter {
-    height: 300px;
-    width: 400px;
     background-color: wheat;
     display: flex;
     flex-flow: column;
@@ -363,6 +361,10 @@ body {
     margin-left: 6px;
 }
 
-.bomb-cards{
-    display: none;
+.bombs-hand{
+    cursor: pointer;
+}
+
+.bombs-hand:hover{
+    filter: opacity(50%);
 }

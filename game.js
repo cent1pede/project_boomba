@@ -11,9 +11,9 @@ var current_round = 1;
 var found_accidents = 0;
 var found_items = 0;
 
-var players_count=4;
+var players_count = 4;
 var decks_object = [{}];
-var setup_bomb_cards=[];
+var setup_bomb_cards = [];
 
 
 
@@ -166,12 +166,78 @@ function fillCardsRandom() {
 
 
 function shuffleAndDrawBombCards(card_array) {
-    
-    for (var i = 0; i<4;i++){
-        decks_object[i] = card_array.splice(0,15);
+
+    for (var i = 0; i < 4; i++) {
+        decks_object[i] = card_array.splice(0, 15);
     }
 
+}
 
+
+function cardDrawal() {
+
+
+    for (var i = 0; i < 4; i++) {
+
+
+        switch (i) {
+            case 0:
+                var j = 0;
+                $.each(decks_object[i], function (index, val) {
+
+                    if (index < 3) {
+                        var li = $('<li/>')
+                            .addClass('bombs-hand')
+                            .appendTo('#player1-hand')
+                            .text(decks_object[i][j]);
+                        j++;
+                    }
+                    decks_object[i].splice(0, 3);
+                });
+                break;
+            case 1:
+                $.each(decks_object[i], function (index, val) {
+
+                    if (index < 3) {
+                        var li = $('<li/>')
+                            .addClass('bombs-hand')
+                            .appendTo('#player2-hand')
+                            .text(decks_object[i][j]);
+                        j++;
+                    }
+                    decks_object[i].splice(0, 3);
+                });
+                break;
+            case 2:
+                var j = 0;
+                $.each(decks_object[i], function (index, val) {
+
+                    if (index < 3) {
+                        var li = $('<li/>')
+                            .addClass('bombs-hand')
+                            .appendTo('#player3-hand')
+                            .text(decks_object[i][j]);
+                        j++;
+                    }
+                    decks_object[i].splice(0, 3);
+                });
+                break;
+            case 3:
+                var j = 0;
+                $.each(decks_object[i], function (index, val) {
+
+                    if (index < 3) {
+                        var li = $('<li/>')
+                            .addClass('bombs-hand')
+                            .appendTo('#player4-hand')
+                            .text(decks_object[i][j]);
+                        j++;
+                    }
+                    decks_object[i].splice(0, 3);
+                });
+                break;
+        }
+    }
 }
 
 
@@ -319,11 +385,11 @@ function restart() {
 }
 
 function init() {
-    
-    players_count = prompt("Введите количество игроков",4);
+
+    players_count = prompt("Введите количество игроков", 4);
     fillCardsRandom();
     shuffleAndDrawBombCards(setup_bomb_cards);
-    
+
     prepareField();
     fillTilesRandom();
     //fillCardsRandom();
@@ -506,46 +572,6 @@ function init() {
                 document.getElementById('tilesnothidden').innerHTML = ("Количество открытых ячеек: " + (setup_obj.length - hiddenCount));
 
 
-
-                //определяем тайлы победы
-                if ($(this).hasClass('kingnotes')) { //} && !$(this).hasClass('hidden')) {
-
-
-
-                    var effect;
-                    var winner_tiles = $('.kingnotes.hidden').length;
-                    var winner_opened = $('.kingnotes').length - winner_tiles;
-                    $('kingnotes').each(function (i, obj) {
-                        if ($(this).hasClass('hidden')) {
-                            winner_tiles++;
-                        } else {
-                            winner_tiles--;
-                        }
-                    })
-
-                    switch (winner_opened) {
-                        case 1:
-                            effect = "нифига";
-                            break;
-                        case 2:
-                            effect = "убийца может ультовать";
-                            break;
-                        case 3:
-                            effect = "убийца может ультовать и у всех по 2 хп";
-                            break;
-                        case 4:
-                            effect = "убийца может ультовать и у всех по 2 хп";
-                            break;
-                        case 5:
-                            effect = "всё, подебили!";
-                            break;
-                        default:
-                            effect = "нифига";
-                            break;
-                    }
-
-                    document.getElementById('windigit').innerHTML = ("x " + winner_opened + " текущий эффект: " + effect);
-                }
             })
 
 
@@ -627,7 +653,6 @@ function init() {
                     p = 0;
                 }
 
-                document.getElementById('accidentsfound').innerHTML = ("Полученных событий: " + found_accidents);
             });
 
             $('body').on('click', '#card-2', function () {
@@ -693,7 +718,7 @@ function init() {
                     q = 0;
                 }
 
-                document.getElementById('itemsfound').innerHTML = ("Полученных предметов: " + found_items);
+
             });
 
 

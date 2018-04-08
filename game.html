@@ -38,15 +38,15 @@
 
 
         <div class="infoplace">
-         
-<!--
+
+            <!--
           <div>Переключить игру</div>
            <input id="theswitch" type="checkbox" onclick="switchGames()" class="switchgame">
 -->
             <div class="info-container" id="info-container">
 
 
-                
+
 
                 <!--
                 <p class="card">Карта события</p>
@@ -54,42 +54,56 @@
                 <p class="card">Карта предмета</p>
                 <div id="card-2" class="card-response"></div>
 -->
+                <div id="bomb-cards" class="bomb-cards">
 
+                    <div class="bomb-container">
+                        <div class="bombs-player" id="player1">Лёша
+
+                            <ul id="player1-hand" >
+
+                            </ul>
+                        </div>
+                        <div class="bombs-player" id="player2">Ира
+                            <ul id="player2-hand" >
+
+                            </ul>
+                        </div>
+                        <div class="bombs-player" id="player3">Паша
+                            <ul id="player3-hand">
+ 
+
+                            </ul>
+                        </div>
+                        <div class="bombs-player" id="player4">Вова
+
+                            <ul id="player4-hand">
+
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
 
                 <div class="round-counter">
                     <p class="rounds">Счётчик раундов</p>
                     <button class="roundbutton" onclick="minusround()">-</button>
                     <p class="rounds" id="currentround">Текущий раунд: 1</p>
                     <button class="roundbutton" onclick="plusround()">+</button>
-                    <p class="rounds" id="tilesnothidden">Открытых ячеек:</p>
-                    <p class="rounds" id="accidentsfound">Полученных событий:</p>
-                    <p class="rounds" id="itemsfound">Полученных предметов:</p>
-                    <div class="wincounter">
-                        <div class="winnotes"></div>
-                        <p id="windigit">x 0</p>
-                    </div>
+                    <!--                    <p class="rounds" id="tilesnothidden">Открытых ячеек:</p>-->
+
                 </div>
 
 
-            </div>
 
-        
-        <div id="bomb-cards" class="bomb-cards">
-           
-            <div class="bomb-container">
-                <div class="bombs-player" id="player1">Лёша</div>
-                <div class="bombs-player" id="player2">Ира</div>
-                <div class="bombs-player" id="player3">Паша</div>
-                <div class="bombs-player" id="player4">Вова</div>
-                
+
+
+
+
+
+
+
             </div>
-            
-            
-            
-            
-            
-            
-        </div>
 
 
 
