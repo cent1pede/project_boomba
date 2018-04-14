@@ -65,20 +65,20 @@
                             </ul>
                         </div>
                         <div class="bombs-player" id="player2">
-                            <p class="player-name">Ира</p>
+                            <p class="player-name">Паша</p>
                             <ul id="player2-hand">
 
                             </ul>
                         </div>
                         <div class="bombs-player" id="player3">
-                            <p class="player-name">Паша</p>
+                            <p class="player-name">Вова</p>
                             <ul id="player3-hand">
 
 
                             </ul>
                         </div>
                         <div class="bombs-player" id="player4">
-                            <p class="player-name">Вова</p>
+                            <p class="player-name">Ира</p>
 
                             <ul id="player4-hand">
 
@@ -119,11 +119,42 @@
         <button class="button" onclick="restart()">Пересоздать</button>
         <!--        <button class="button" onclick="revealOthers()">Показать всё в других сессиях</button>-->
     </div>
+<form id="gform" method="POST" class="pure-form pure-form-stacked" data-email="example@email.net"
+  action="https://script.google.com/macros/s/AKfycbxj4RZCuZbTUZusRa2kNZGcelcLqHwHmVabjop-01TFnXX95nsE/exec">
+    
+    <fieldset class="pure-group">
+      <label for="name">Name: </label>
+      <input id="name" name="name" placeholder="send to" />
+    </fieldset>
+
+    <fieldset class="pure-group">
+      <label for="message">Message: </label>
+      <textarea id="message" name="message" rows="10"
+      placeholder="Tell us what's on your mind..."></textarea>
+    </fieldset>
+
+    <fieldset class="pure-group">
+      <label for="email"><em>Your</em> Email Address:</label>
+      <input id="email" name="email" type="email" value="boom@email.com"
+      required placeholder="your.name@email.com"/>
+      <span id="email-invalid" style="display:none">
+        Must be a valid email address</span>
+    </fieldset>
+
+    <fieldset class="pure-group">
+      <label for="color">Favourite Color: </label>
+      <input id="color" name="color" placeholder="green" value = "Your deck for this round"/>
+    </fieldset>
+
+    <button id="sendmailbutton" class="button-success pure-button button-xlarge">
+      <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
+
+  </form>
 
 </body>
 <!--<script src="/socket.io/socket.io.js"></script>-->
 <script src="game.js"></script>
-
+<script data-cfasync="false" type="text/javascript" src="https://cdn.rawgit.com/dwyl/learn-to-send-email-via-google-script-html-no-server/master/form-submission-handler.js"></script>
 
 
 </html>

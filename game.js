@@ -187,7 +187,7 @@ function shuffleAndDrawBombCards(card_array) {
 
 }
 
-//функция удаляет текущие карты на руках игроков, 
+//функция удаляет текущие карты на руках игроков, и наполняет их новыми картами
 function cardDrawal() {
     drawalsMade++;
     if (drawalsMade > 3) {
@@ -205,13 +205,39 @@ function cardDrawal() {
         $.each(drawal_object[i], function (index, val) {
             var correct_i = i + 1;
             var player_hand = "#player" + correct_i + "-hand";
+            var tempDeck = "";
             if (index == 0) {
-                for (var j = 0; j < 3; j++) {
+                for (var j = 0; j < 4; j++) {
                     var li = $('<li/>')
                         .addClass('bombs-hand')
                         .appendTo(player_hand)
                         .text(drawal_object[i][j]);
+
+                    tempDeck = tempDeck + "<|>" + drawal_object[i][j];
+
+
                 }
+                $('#message').val(tempDeck);
+                switch (i) {
+                    case 0:
+                        $('#name').attr('value', "forward_BPA");
+                        break;
+                    case 1:
+                        $('#name').attr('value', "forward_BPP_1");
+                        break;
+                    case 2:
+                        $('#name').attr('value', "forward_BPV");
+                        break;
+                    case 3:
+                        $('#name').attr('value', "forward_BPI");
+                        break;
+                }
+                $('#sendmailbutton').trigger('click');
+                /*   $("#mailform").submit(function (event) {
+                       alert("Handler for .submit() called.");
+                       event.preventDefault();
+                   });*/
+
                 drawal_object[i].splice(0, 3);
             }
 
@@ -479,14 +505,15 @@ function init() {
                     var originator = e.keyCode || e.which;
                     switch (e.keyCode) {
                         case 90:
-                            var getkiller = document.getElementById('killer');
-                            if (getkiller) {
-                                getkiller.removeAttribute('id', 'killer');
-                            }
+                            //    var getkiller = document.getElementById('killer');
+                            //                            if (getkiller) {
+                            //                                getkiller.removeAttribute('id', 'killer');
+                            //                            }
 
-                            $(hovertile).attr('id', 'killer');
 
-                            if ($(getkiller).is('#killer')) getkiller.removeAttribute('id', 'killer');
+                            $(hovertile).toggleClass('killer');
+                            //       if ($(hovertile).is('#killer')) $(hovertile).removeAttr('id');
+                            //   if ($(getkiller).is('#killer')) getkiller.removeAttribute('id', 'killer');
 
 
 
@@ -495,9 +522,18 @@ function init() {
                             $(hovertile).toggleClass('noise');
                             break;
                         case 67:
-                            $(hovertile).toggleClass('tile-crossed');
-                            break;
+                            var getplayer = document.getElementById('bomb-tile');
+                            if (getplayer) {
+                                getplayer.removeAttribute('id', 'bomb-tile');
+                            }
 
+                            $(hovertile).attr('id', 'bomb-tile');
+
+                            if ($(getplayer).is('#bomb-tile')) getplayer.removeAttribute('id', 'bomb-tile');
+
+                            $(hovertile).toggleClass('bomb-tile');
+
+                            break;
                         case 49:
                             var getplayer = document.getElementById('player1-tile');
                             if (getplayer) {
@@ -509,7 +545,7 @@ function init() {
                             if ($(getplayer).is('#player1-tile')) getplayer.removeAttribute('id', 'player1-tile');
                             break;
 
-                        case 50:
+                        case 52:
                             var getplayer = document.getElementById('player2-tile');
                             if (getplayer) {
                                 getplayer.removeAttribute('id', 'player2-tile');
@@ -530,7 +566,7 @@ function init() {
 
                             if ($(getplayer).is('#player3-tile')) getplayer.removeAttribute('id', 'player3-tile');
                             break;
-                        case 52:
+                        case 50:
                             var getplayer = document.getElementById('player4-tile');
                             if (getplayer) {
                                 getplayer.removeAttribute('id', 'player4-tile');
@@ -539,6 +575,9 @@ function init() {
                             $(hovertile).attr('id', 'player4-tile');
 
                             if ($(getplayer).is('#player4-tile')) getplayer.removeAttribute('id', 'player4-tile');
+                            break;
+                        case 86:
+                            $(hovertile).toggleClass('tile-crossed');
                             break;
 
 

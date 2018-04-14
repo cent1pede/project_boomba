@@ -177,7 +177,7 @@ body {
 
 }
 
-#killer {
+.killer {
     box-shadow: inset 0px 0px 25px 2px white;
 }
 
@@ -346,7 +346,7 @@ body {
 
 
 .tile-crossed{
-    box-shadow: inset 0px 0px 30px 5px black;
+    box-shadow: inset 0px 0px 30px 5px crimson;
 }
 
 .tile-crossed::after {
@@ -466,4 +466,20 @@ body {
     margin-left: 6px;
 }
 
+#bomb-tile{
+    box-shadow: inset 0px 0px 30px 5px black;
+}
+
+#bomb-tile::after {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "\1f4a3"; /* use the hex value here... */
+    font-size: 50px; 
+    color: #FFF;
+    line-height: 80px;
+    text-align: center;
+    margin-left: 6px;
+}
 
